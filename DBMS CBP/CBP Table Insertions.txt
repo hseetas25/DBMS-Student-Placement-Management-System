@@ -1,0 +1,384 @@
+SQL> create table student(sid varchar2(10) constraint pk primary key, fname varchar2(20),lname varchar2(20),branch varchar2(5), cgpa number(2,1), doj date);
+
+Table created.
+
+SQL> create table company(cid varchar2(6) constraint pk_cid primary key,cname varchar2(20),sid varchar2(10),branch varchar2(5),cgpa number(2,1),package number(8,2),foreign key(sid) references student(sid));
+
+Table created.
+
+SQL> create table training(tname varchar2(100), branch varchar2(5),duration number(3));
+
+Table created.
+
+SQL>create table roles(cid varchar2(6),rname varchar2(30),time varchar2(20),foreign key(cid) references company(cid));
+
+Table created.
+
+
+SQL> insert into student values('19071A0501','David','Parker','CSE',8.5,'12-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0502','Jones','Easton','CSE',8.7,'09-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0503','Christine','Hudson','CSE',9.5,'11-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0504','Mary','Adler','CSE',8.5,'10-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0505','Rohit','Sharma','CSE',9.6,'11-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0510','Daniel','Ashley','CSE',9.3,'16-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0511','Rosy','Carson','CSE',9.4,'15-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0403','Jones','Vaughn','ECE',8.3,'08-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0405','John','Reed','ECE',9.5,'13-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0407','Denver','Tyler','ECE',9.2,'13-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0410','Kates','Ellis','ECE',8.9,'12-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0408','Arha','Penn','ECE',8.7,'11-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0411','Ayush','Taylor','ECE',9.6,'18-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0301','John','Thompson','CE',8.7,'16-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0303','Barkha','Brady','CE',7.7,'11-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0305','Mithoon','Emerson','CE',8.3,'12-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0306','Rosy','Hazel','CE',8.4,'15-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0307','Martin','Walker','CE',8.7,'15-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0310','Jennie','Raddix','CE',9.5,'11-jun-2019');
+
+1 row created.
+
+
+SQL> insert into student values('19071A0201','Lisa','Fallon','MECH',8.8,'09-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0202','Donald','Anderson','MECH',9.7,'17-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0203','Mark','Sullivan','MECH',8.7,'19-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0204','Edward','Reagan','MECH',8.6,'09-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0205','Rahul','Quinn','MECH',9.2,'15-jun-2019');
+
+1 row created.
+
+SQL> insert into student values('19071A0210','Alex','Monroe','MECH',8.2,'19-jun-2019');
+
+1 row created.
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+SQL> insert into company values('DE0501','Deloitte','19071A0501','CSE',8.5,8);
+
+1 row created.
+
+SQL> insert into company values('JP0502','JPMC','19071A0502','CSE',8.7,10);
+
+1 row created.
+
+SQL>  insert into company values('AM0503','Amazon','19071A0503','CSE',9.5,10);
+
+1 row created.
+
+SQL>  insert into company values('GO0504','Google','19071A0504','CSE',8.5,8.5);
+
+1 row created.
+
+SQL> insert into company values('AM0505','Amazon','19071A0505','CSE',9.6,12);
+
+1 row created.
+
+SQL> insert into company values('MI0510','Microsoft','19071A0510','CSE',9.4,10);
+
+1 row created.
+
+SQL> insert into company values('DE0511','Deloitte','19071A0511','CSE',9.4,10);
+
+1 row created.
+
+SQL> insert into company values('JP0403','JPMC','19071A0403','ECE',8.3,6.5);
+
+1 row created.
+
+SQL>  insert into company values('AM0405','Amazon','19071A0405','ECE',9.5,10);
+
+1 row created.
+
+SQL>  insert into company values('MI0407','Microsoft','19071A0407','ECE',9.2,10);
+
+1 row created.
+
+SQL>  insert into company values('DE0410','Deloitte','19071A0410','ECE',8.9,12);
+
+1 row created.
+
+SQL> insert into company values('GO0408','Google','19071A0408','ECE',8.7,8.5);
+
+1 row created.
+
+SQL> insert into company values('JP0411','JPMC','19071A0411','ECE',9.6,8);
+
+1 row created.
+
+SQL>  insert into company values('MI0301','Microsoft','19071A0301','CE',8.7,10);
+
+1 row created.
+
+SQL> insert into company values('AM0303','Amazon','19071A0303','CE',7.7,8);
+
+1 row created.
+
+SQL>  insert into company values('MI0305','Microsoft','19071A0305','CE',8.3,8.5);
+
+1 row created.
+
+SQL> insert into company values('DE0306','Deloitte','19071A0306','CE',8.4,10);
+
+1 row created.
+
+SQL> insert into company values('AM0307','Amazon','19071A0307','CE',8.7,10);
+
+1 row created.
+
+SQL> insert into company values('JP0310','JPMC','19071A0310','CE',9.5,8.5);
+
+1 row created.
+
+
+SQL>  insert into company values('AM0201','Amazon','19071A0201','MECH',8.8,10);
+
+1 row created.
+
+SQL>  insert into company values('AM0202','Amazon','19071A0202','MECH',9.7,8);
+
+1 row created.
+
+SQL>  insert into company values('JP0203','JPMC','19071A0203','MECH',8.7,7.5);
+
+1 row created.
+
+SQL> insert into company values('GO0204','Google','19071A0204','MECH',8.6,8.5);
+
+1 row created.
+
+SQL>  insert into company values('AM0205','Amazon','19071A0205','MECH',9.2,10);
+
+1 row created.
+
+SQL> insert into company values('JP0210','JPMC','19071A0210','MECH',8.2,8);
+
+1 row created.
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+SQL> insert into training values('AI/ML through Python','CSE',48);
+
+1 row created.
+
+SQL> insert into training values('Front End-Back End Development','CSE',36);
+
+1 row created.
+
+SQL> insert into training values('Programming for Everybody','CSE',36);
+
+1 row created.
+
+SQL> insert into training values('Digital Analog Design','ECE',36);
+
+1 row created.
+
+SQL> insert into training values('Embedded Sysytems','ECE',20);
+
+1 row created.
+
+SQL> insert into training values('Computer Network and System Security','ECE',25);
+
+1 row created.
+
+SQL> insert into training values('Wireless Networks','ECE',40);
+
+1 row created.
+
+SQL> insert into training values('Building Planning Design and Analysis','CE',20);
+
+1 row created.
+
+SQL> insert into training values('Construction Project Managament','CE',16);
+
+1 row created.
+
+SQL> insert into training values('Industrial Infrastructure','CE',16);
+
+1 row created.
+
+SQL> insert into training values('SAP 2000(Structural Analysis and Design)','CE',36);
+
+1 row created.
+
+SQL> insert into training values('SAP 2000(Structural Analysis and  Design)','MECH',36);
+
+1 row created.
+
+SQL> insert into training values('NX Unigraphics','MECH',24);
+
+1 row created.
+
+SQL> insert into training values('CNC Programming','MECH',20);
+
+1 row created.
+
+SQL> insert into training values('Autocad Software','MECH',40);
+
+1 row created.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+SQL> insert into roles values('DE0501', 'Software Developer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('JP0502', 'Software Development Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0503', 'Software Developer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('GO0504', 'System Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0505', 'Software Development Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('MI0510', 'Software Developer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('DE0511', 'Software Development Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('JP0403', 'Network Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0405', 'System Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('MI0407', 'Network Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('DE0410', 'Software Developer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('GO0408', 'Network Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('JP0411', 'System Engineer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('MI0301', 'Hardware Engineer','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0303', 'Software Engineer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('MI0305', 'Software Developer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('DE0306', 'Hardware Technician','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0307', 'Software Engineer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('JP0310', 'System Engineering Manager','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0201', 'Software Developer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('AM0202', 'System Engineering Manager','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('JP0203', 'Software Developer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('GO0204', 'System Engineering Manager','Full Time');
+
+1 row created.
+
+SQL> insert into roles values('AM0205', 'Network Engineer','Intern');
+
+1 row created.
+
+SQL> insert into roles values('JP0210','Hardware Technician','Intern');
+
+1 row created.
